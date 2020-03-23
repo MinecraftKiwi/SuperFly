@@ -1,0 +1,12 @@
+name: "NeverFly"
+author: "Teddy"
+description: "Manage fly mode for players"
+version: "1.0"
+api-version: "1.13"
+main: "de.nevermined.neverfly.NeverFly"
+
+commands:
+  fly:
+    description: Toggle your fly mode
+  flyspeed:
+    description: Modify your fly speed
