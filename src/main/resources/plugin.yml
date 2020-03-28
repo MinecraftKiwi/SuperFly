@@ -1,12 +1,12 @@
-name: "NeverFly"
+name: "SuperFly"
 author: "Teddy"
 description: "Manage fly mode for players"
-version: "1.0"
+version: "1.1"
 api-version: "1.13"
-main: "de.nevermined.neverfly.NeverFly"
+main: "io.github.twieteddy.superfly.SuperFlyPlugin"
 
 commands:
   fly:
-    description: Toggle your fly mode
+    description: Toggle fly mode
   flyspeed:
-    description: Modify your fly speed
+    description: Modify fly speed
