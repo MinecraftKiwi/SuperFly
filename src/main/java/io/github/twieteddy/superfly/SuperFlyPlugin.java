@@ -18,7 +18,7 @@ public class SuperFlyPlugin extends JavaPlugin {
     PluginManager pm = this.getServer().getPluginManager();
 
     try {
-      SuperFlyConfig config = new SuperFlyConfig(this);
+      Config config = new Config(this);
       PluginCommand flyCommand = Objects.requireNonNull(this.getCommand("fly"));
       PluginCommand flyspeedCommand = Objects.requireNonNull(this.getCommand("flyspeed"));
 

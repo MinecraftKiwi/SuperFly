@@ -2,9 +2,9 @@ package io.github.twieteddy.superfly.commands;
 
 import static java.lang.Float.parseFloat;
 
-import io.github.twieteddy.superfly.MessageHelper;
-import io.github.twieteddy.superfly.SuperFlyConfig;
-import io.github.twieteddy.superfly.SuperFlyPermissions;
+import io.github.twieteddy.superfly.Messages;
+import io.github.twieteddy.superfly.Config;
+import io.github.twieteddy.superfly.Permissions;
 import java.util.Arrays;
 import java.util.Iterator;
 import org.bukkit.Bukkit;
@@ -15,10 +15,10 @@ import org.bukkit.entity.Player;
 
 public class FlyspeedCommand implements CommandExecutor {
 
-  private final MessageHelper messages;
+  private final Messages messages;
 
-  public FlyspeedCommand(SuperFlyConfig config) {
-    this.messages = config.getMessageHelper();
+  public FlyspeedCommand(Config config) {
+    this.messages = config.getMessages();
   }
 
   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -36,7 +36,7 @@ public class FlyspeedCommand implements CommandExecutor {
         sender.sendMessage(messages.getSenderNotPlayer());
         return true;
       }
-      if (sender.hasPermission(SuperFlyPermissions.FLYSPEED)) {
+      if (sender.hasPermission(Permissions.FLYSPEED)) {
         target = (Player) sender;
       } else {
         sender.sendMessage(messages.getNoPermsFlyspeedSelf());
@@ -44,7 +44,7 @@ public class FlyspeedCommand implements CommandExecutor {
       }
     } else {
       // Check if sender can change others flySpeed
-      if (sender.hasPermission(SuperFlyPermissions.FLYSPEED_OTHERS)) {
+      if (sender.hasPermission(Permissions.FLYSPEED_OTHERS)) {
         target = Bukkit.getPlayer(argOtherPlayer);
         // Check if target player is online
         if (target == null) {

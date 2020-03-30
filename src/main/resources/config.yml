@@ -1,17 +1,15 @@
 # Variables: sender, target, flyspeed
 
-prefix: '&3[SuperFly]&7 '
 messages:
+  prefix: '&8[&3&l»&8]&7 '
   sender-not-player: 'Du bist kein Spieler'
   player-not-online: 'Der Spieler ist nicht online'
   no-perms-fly-self: 'Du darfst dir den Flugmodus nicht selbst aktivieren'
   no-perms-fly-others: 'Du darfst anderen Spielern den Flugmodus nicht aktivieren'
-  fly-activated-self: 'Flugmodus aktiviert'
+  fly-activated: 'Flugmodus aktiviert'
   fly-activated-for: 'Du hast den Flugmodus für &f%target%&7 aktiviert'
-  fly-activated-by: 'Flugmodus wurde von &f%sender%&7 aktiviert'
   fly-deactivated-self: 'Flugmodus deaktiviert'
   fly-deactivated-for: 'Du hast den Flugmodus für &f%target%&7 deaktiviert'
-  fly-deactivated-by: 'Flugmodus wurde von &f%sender%&7 deaktiviert'
   no-perms-flyspeed-self: 'Du darfst deine Fluggeschwindigkeit nicht manipulieren'
   no-perms-flyspeed-others: 'Du darfst die fremde Fluggeschwindigkeit nicht manipulieren'
   flyspeed-changed-own: 'Deine Fluggeschwindigkeit wurde auf &3%flyspeed%&7 gesetzt'

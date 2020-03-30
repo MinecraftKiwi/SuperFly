@@ -6,19 +6,51 @@
 
   <groupId>io.github.twieteddy</groupId>
   <artifactId>SuperFly</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
+
   <build>
+    <finalName>${project.name}-${project.version}</finalName>
+    <defaultGoal>clean package</defaultGoal>
+    <resources>
+      <resource>
+        <targetPath>.</targetPath>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <excludes>
+          <exclude>**/.*.*</exclude>
+        </excludes>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
         <configuration>
-          <source>8</source>
-          <target>8</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <minimizeJar>false</minimizeJar>
+              <shadedArtifactAttached>true</shadedArtifactAttached>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
+
   <repositories>
     <repository>
       <id>spigot-repo</id>
@@ -28,12 +60,8 @@
       <id>bungeecord-repo</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </repository>
-    <repository>
-      <id>dmulloy2-repo</id>
-      <url>https://repo.dmulloy2.net/nexus/repository/public/</url>
-    </repository>
-
   </repositories>
+
   <dependencies>
     <dependency>
       <groupId>org.spigotmc</groupId>
@@ -42,9 +70,14 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.comphenix.protocol</groupId>
-      <artifactId>ProtocolLib</artifactId>
-      <version>4.5.0</version>
+      <groupId>commons-cli</groupId>
+      <artifactId>commons-cli</artifactId>
+      <version>1.4</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 </project>

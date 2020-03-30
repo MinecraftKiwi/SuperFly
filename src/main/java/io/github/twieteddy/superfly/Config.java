@@ -4,11 +4,13 @@ import javax.naming.ConfigurationException;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
-public class SuperFlyConfig {
+public class Config {
 
-  private final MessageHelper messageHelper;
+  private final Messages messages;
+  private final SuperFlyPlugin plugin;
 
-  public SuperFlyConfig(SuperFlyPlugin plugin) throws ConfigurationException {
+  public Config(SuperFlyPlugin plugin) throws ConfigurationException {
+    this.plugin = plugin;
     FileConfiguration config = plugin.getConfig();
 
     plugin.getConfig().options().copyDefaults(true);
@@ -19,10 +21,14 @@ public class SuperFlyConfig {
       throw new ConfigurationException("Message section not found in config");
     }
 
-    this.messageHelper = new MessageHelper(messageSection);
+    this.messages = new Messages(messageSection);
   }
 
-  public MessageHelper getMessageHelper() {
-    return this.messageHelper;
+  public Messages getMessages() {
+    return this.messages;
+  }
+
+  public SuperFlyPlugin getPlugin() {
+    return this.plugin;
   }
 }
