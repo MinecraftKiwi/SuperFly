@@ -1,12 +1,20 @@
 name: "SuperFly"
 author: "Teddy"
 description: "Manage fly mode for players"
-version: "1.1"
+version: "${project.version}"
 api-version: "1.13"
 main: "io.github.twieteddy.superfly.SuperFlyPlugin"
 
 commands:
   fly:
-    description: Toggle fly mode
+    description: Change fly mode
   flyspeed:
-    description: Modify fly speed
+    description: Change fly speed (from -10 to 10)
+
+permissions:
+  superfly.fly:
+    description: Toggle or set own fly mode
+    default: op
+  superfly.fly.others:
+    description: Toggle or set fly mode of another player
+    default: op
