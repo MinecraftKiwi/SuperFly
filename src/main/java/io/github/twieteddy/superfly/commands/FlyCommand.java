@@ -3,6 +3,7 @@ package io.github.twieteddy.superfly.commands;
 import io.github.twieteddy.superfly.Config;
 import io.github.twieteddy.superfly.Messages;
 import io.github.twieteddy.superfly.Permissions;
+import java.util.List;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -11,11 +12,11 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
-public class FlyCommand implements CommandExecutor {
+public class FlyCommand implements TabExecutor {
 
   private final Messages messages;
   private final CommandLineParser parser;
@@ -80,5 +81,11 @@ public class FlyCommand implements CommandExecutor {
     }
 
     return true;
+  }
+
+  @Override
+  public List<String> onTabComplete(
+      CommandSender commandSender, Command command, String s, String[] strings) {
+    return null;
   }
 }

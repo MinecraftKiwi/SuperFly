@@ -26,12 +26,11 @@ public class Messages {
   public Messages(ConfigurationSection messageSection) {
     this.section = messageSection;
     this.prefix = getTranslatedMessage("prefix");
-
     this.senderNotPlayer = prefix + getTranslatedMessage("sender-not-player");
     this.playerNotOnline = prefix + getTranslatedMessage("player-not-online");
     this.noPermsFlySelf = prefix + getTranslatedMessage("no-perms-fly-self");
     this.noPermsFlyOthers = prefix + getTranslatedMessage("no-perms-fly-others");
-    this.flyActivated = prefix + getTranslatedMessage("fly-activated-self");
+    this.flyActivated = prefix + getTranslatedMessage("fly-activated");
     this.flyActivatedFor = prefix + getTranslatedMessage("fly-activated-for");
     this.flyDeactivated = prefix + getTranslatedMessage("fly-deactivated-self");
     this.flyDeactivatedFor = prefix + getTranslatedMessage("fly-deactivated-for");
