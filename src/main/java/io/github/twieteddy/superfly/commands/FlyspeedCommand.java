@@ -33,8 +33,18 @@ public class FlyspeedCommand implements CommandExecutor {
     Iterator<String> iterator = Arrays.asList(args).iterator();
     String newFlyspeed = iterator.hasNext() ? iterator.next() : "";
     String targetName = iterator.hasNext() ? iterator.next() : "";
+    Player target;
 
-    Player target = targetName.isEmpty() ? (Player) sender : Bukkit.getPlayer(targetName);
+    if (targetName.isEmpty()) {
+      if (sender instanceof Player) {
+        target = (Player) sender;
+      } else {
+        sender.sendMessage(messages.getSenderNotPlayer());
+        return false;
+      }
+    } else {
+      target = Bukkit.getPlayer(targetName);
+    }
 
     if (target == null) {
       sender.sendMessage(messages.getPlayerNotOnline());
