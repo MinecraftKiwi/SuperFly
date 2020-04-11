@@ -3,6 +3,7 @@ package io.github.twieteddy.superfly.commands;
 import io.github.twieteddy.superfly.Config;
 import io.github.twieteddy.superfly.Messages;
 import io.github.twieteddy.superfly.Permissions;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -47,7 +48,7 @@ public class FlyCommand implements TabExecutor {
       return false;
     }
 
-    String targetName = cmd.getArgList().isEmpty() ? "" : cmd.getArgs()[0];
+    String targetName = cmd.getArgList().isEmpty() ? sender.getName() : cmd.getArgs()[0];
     Player target = Bukkit.getPlayer(targetName);
 
     if (target == null) {
@@ -60,13 +61,8 @@ public class FlyCommand implements TabExecutor {
       return false;
     }
 
-    boolean fly = !target.getAllowFlight();
-
-    if (cmd.hasOption("on")) {
-      fly = true;
-    } else if (cmd.hasOption("off")) {
-      fly = false;
-    }
+    // Toggle fly considering options
+    boolean fly = (cmd.hasOption("on") || !target.getAllowFlight()) && !cmd.hasOption("off");
 
     target.setAllowFlight(fly);
     target.setFlying(fly);

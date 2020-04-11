@@ -6,7 +6,7 @@
 
   <groupId>io.github.twieteddy</groupId>
   <artifactId>SuperFly</artifactId>
-  <version>1.1.1</version>
+  <version>1.1.3</version>
 
   <build>
     <finalName>${project.name}-${project.version}</finalName>
